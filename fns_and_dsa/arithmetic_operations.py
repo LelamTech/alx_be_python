@@ -1,21 +1,28 @@
-# arithmetic_operations.py
+# calculator.py
 
-def perform_operation(num1: float, num2: float, operation: str):
-    """
-    Perform basic arithmetic operations.
-    Supported operations: add, subtract, multiply, divide.
-    Returns numeric result or a string error message for division by zero or invalid operation.
-    """
-    op = operation.strip().lower()
-    if op == "add":
+# Step 1: Define the function
+def perform_operation(num1, num2, operation):
+    if operation == "add":
         return num1 + num2
-    elif op == "subtract":
+    elif operation == "subtract":
         return num1 - num2
-    elif op == "multiply":
+    elif operation == "multiply":
         return num1 * num2
-    elif op == "divide":
+    elif operation == "divide":
         if num2 == 0:
-            return "Cannot divide by zero"
-        return num1 / num2
+            return "Error: Cannot divide by zero"
+        else:
+            return num1 / num2
     else:
         return "Invalid operation"
+
+# Step 2: Take user input
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+operation = input("Choose operation (add/subtract/multiply/divide): ").lower()
+
+# Step 3: Call the function
+result = perform_operation(num1, num2, operation)
+
+# Step 4: Print result
+print("Result:", result)
